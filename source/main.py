@@ -1,8 +1,12 @@
-import os 
+import sys
 from dsatur import dsatur
 from graph import Graph
-arquivo = input("forneça o caminho do arquivo, Exemplo(sem as contra barras duplas): C:\\Users\\Usuario\\Downloads\\t5\\dados\\brasil.txt")
 
+if ( len(sys.argv) <= 1 ):
+    print("informe o arquivo de entrada. Ex.: python main.py ../dados/brasil.txt")
+    sys.exit(1)
+
+arquivo = sys.argv[1]
 
 with open(arquivo) as f:
     V = int(f.readline())
@@ -11,8 +15,6 @@ with open(arquivo) as f:
     for _ in range(E):
         v,w = f.readline().split()
         graph.add_edge(v,w)
-
-
 
 dsatur(graph)
 
