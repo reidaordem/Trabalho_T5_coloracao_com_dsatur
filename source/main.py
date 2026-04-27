@@ -15,6 +15,9 @@ with open(arquivo) as f:
     for _ in range(E):
         v,w = f.readline().split()
         graph.add_edge(v,w)
+    print("=== Lista de Adjacência ===")
+    print(graph) 
+    print("-" * 30)
 
 dsatur(graph)
 
